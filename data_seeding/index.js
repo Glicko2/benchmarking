@@ -16,6 +16,11 @@ let databases = [
         players: 1000,
         matches: 1000,
     },
+    {
+        name: '100kp100km',
+        players: 100000,
+        matches: 100000,
+    },
 ]
 
 let scores = [1.0, 0.5, 0.0];
@@ -41,14 +46,22 @@ conn.connect((err) => {
                 rating FLOAT NULL,
                 rd FLOAT NULL,
                 sigma FLOAT NULL
-            )`);
+            )`, (err) => {
+                if (err) {
+                    console.log(err);
+                }
+            });
 
             conn.query(`CREATE TABLE IF NOT EXISTS \`${database.name}\`.matches (
                 id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
                 player1 INT NULL,
                 player2 INT NULL,
                 score FLOAT NULL
-            )`);
+            )`, (err) => {
+                if (err) {
+                    console.log(err);
+                }
+            });
 
 
             for (let i = 0; i < database.players; i++) {
@@ -56,7 +69,7 @@ conn.connect((err) => {
             }
 
             for (let i = 0; i < database.matches; i++) {
-                conn.query(`INSERT INTO \`${database.name}\`.matches SET player1=${randBetween(1, database.matches)},player2=${randBetween(1, database.matches)},score=${scores[randBetween(0, 2)]}`);
+                conn.query(`INSERT INTO \`${database.name}\`.matches SET player1=${randBetween(1, database.players)},player2=${randBetween(1, database.players)},score=${scores[randBetween(0, 2)]}`);
             }
         });
     });
