@@ -37,12 +37,14 @@ conn.connect((err) => {
             console.log(`${database.name} created.`);
 
             conn.query(`CREATE TABLE IF NOT EXISTS \`${database.name}\`.players (
+                id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
                 rating FLOAT NULL,
                 rd FLOAT NULL,
                 sigma FLOAT NULL
             )`);
 
             conn.query(`CREATE TABLE IF NOT EXISTS \`${database.name}\`.matches (
+                id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
                 player1 INT NULL,
                 player2 INT NULL,
                 score FLOAT NULL
