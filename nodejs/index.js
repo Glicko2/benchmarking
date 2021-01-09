@@ -1,4 +1,5 @@
 const bench = require('nanobench');
+const fs = require('fs');
 const { Sequelize, DataTypes } = require('sequelize');
 require('sequelize-batches');
 
@@ -6,6 +7,13 @@ let username = process.env.USERNAME;
 let password = process.env.PASSWORD;
 let host = process.env.HOST;
 let database = process.env.DATABASE;
+
+let consoleOutput = fs.createWriteStream(`benchmarks/${database}.log`, {flags : 'w'});
+
+console.log = function(message) {
+    consoleOutput.write(`${message}\n`);
+    console.info(message);
+};
 
 let conn = new Sequelize({
     database: database,
