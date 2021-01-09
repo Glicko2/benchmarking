@@ -3,7 +3,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "bench": "cross-env USERNAME=root PASSWORD=secret HOST=localhost DATABASE=\"$npm_config_db\" node index.js && npx cross-env FILE=\"$npm_config_db.log\" node parse.js"
   },
   "dependencies": {
     "cross-env": "^7.0.3",
