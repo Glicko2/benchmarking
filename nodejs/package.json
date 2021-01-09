@@ -3,7 +3,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "bench": "cross-env USERNAME=root PASSWORD=secret HOST=localhost DATABASE=\"$npm_config_db\" node index.js && npx cross-env FILE=\"$npm_config_db.log\" node parse.js"
+    "bench": "cross-env USERNAME=\"$npm_config_user\" PASSWORD=\"$npm_config_password\" HOST=\"$npm_config_host\" DATABASE=\"$npm_config_db\" node index.js && npx cross-env FILE=\"$npm_config_db.log\" node parse.js"
   },
   "dependencies": {
     "cross-env": "^7.0.3",
