@@ -11,7 +11,9 @@
     "glicko2": "^0.8.4",
     "glicko2-js": "^1.0.3",
     "go-glicko": "^1.1.0",
-    "mysql": "^2.18.1",
-    "nanobench": "^2.1.1"
+    "mysql2": "^2.2.5",
+    "nanobench": "^2.1.1",
+    "sequelize": "^6.3.5",
+    "sequelize-batches": "^1.1.0"
   }
 }
