@@ -55,9 +55,11 @@ const glicko2JS = require('glicko2-js');
 
 function start() {
     return new Promise(async (resolve, reject) => {
+        console.info('Starting DB select.');
         let dPlayers = await Player.findAll();
         let dMatches = await Match.findAll();
-    
+        console.info('Finished DB select. Starting benchmarks.');
+
         for(let i = 1; i < 4; i++) {
             bench(`go-glicko rating period #${i}`, async (b) => {
                 b.start();
