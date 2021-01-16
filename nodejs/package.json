@@ -10,6 +10,7 @@
     "glicko-two": "^1.3.1",
     "glicko2": "^0.8.4",
     "glicko2-js": "^1.0.3",
+    "glob": "^7.1.6",
     "go-glicko": "^1.1.0",
     "mysql2": "^2.2.5",
     "nanobench": "^2.1.1",
